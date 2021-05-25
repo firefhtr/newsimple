@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-deployment
+  labels:
+    app: simple
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: simple
+        image: firefhtr/realsimple:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html
+            subPath: example-static-website
+            name: static-website-volume
+      volumes:
+        - name: static-website-volume
+          gitRepo:
+            repository: https://github.com/firefhtr/realsimple.git        
