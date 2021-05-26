@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mynginx
+  namespace: default
+spec: 
+  replicas: 1  
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: apps.deployment-default-mynginx
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-default-mynginx
+    spec:
+      containers:
+      - name: static-website
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html
+            subPath: newsimple
+            name: static-website-volume
+      volumes:
+        - name: static-website-volume
+          gitRepo:
+            repository: https://github.com/firefhtr/newsimple.git
