@@ -34,4 +34,4 @@ spec:
       volumes:
         - name: static-website-volume
           gitRepo:
-            repository: https://github.com/firefhtr/realsimple.git       
+            repository: https://github.com/firefhtr/newsimple.git       
