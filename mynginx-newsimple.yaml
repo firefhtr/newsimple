@@ -4,7 +4,7 @@ metadata:
   name: mynginx
   namespace: default
 spec: 
-  replicas: 2  
+  replicas: 1  
   selector:
     matchLabels:
       workload.user.cattle.io/workloadselector: apps.deployment-default-mynginx
