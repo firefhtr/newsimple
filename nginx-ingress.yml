@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: nip.io
+  - host: sslip.io
     http:
       paths:
       - backend:
