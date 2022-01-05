@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mynginx-in
+  namespace: default
+spec:
+  rules:
+  - host: sslip.io
+    http:
+      paths:
+      - backend:
+          service:
+            name: mynginx
+            port:
+              number: 80
+        pathType: ImplementationSpecific
