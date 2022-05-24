@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: static-website
-        image: harbor-local.suselabs.com/local/my-static-website
+        image: hello-world
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
