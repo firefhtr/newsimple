@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: static-website
-        image: hello-world
+        image: nginxdemos/hello
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
