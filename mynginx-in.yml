@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: sslip.io
+  - host: mynginx-in.default.149.44.176.108.sslip.io
     http:
       paths:
       - backend:
@@ -13,4 +13,5 @@ spec:
             name: mynginx
             port:
               number: 80
-        pathType: ImplementationSpecific
+        pathType: Prefix
+        path: /
